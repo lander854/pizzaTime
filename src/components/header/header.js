@@ -6,7 +6,7 @@ export const Header = (props) => {
   return (
     <View style={container}>
       <Text style={text}> Your order so far: </Text>
-      <Text style={text}>0 USD</Text>
+      <Text style={text}>{props.value} USD</Text>
     </View>
   );
 };

@@ -18,7 +18,7 @@ export const ButtonComponent = (props) => {
         onPress={props.onPress}
         title={props.label}
         titleStyle={text}
-        disabled={false}
+        disabled={props.disabled}
         loading={props.loading}
       />
     </View>

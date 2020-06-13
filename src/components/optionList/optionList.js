@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   StyleSheet,
   FlatList,
@@ -11,54 +11,19 @@ import {
 import {Colors} from '../../globals';
 
 export const OptionList = (props) => {
-  const items = [
-    {
-      id: '1',
-      title: 'Small Pizza',
-      image: require('./../../assets/img/pizza2.jpg'),
-      servings: 4,
-      price: '8USD',
-      ingredients: 3,
-    },
-    {
-      id: '2',
-      title: 'Medium Pizza',
-      image: require('./../../assets/img/pizza2.jpg'),
-      servings: 6,
-      price: '10USD',
-      ingredients: 3,
-    },
-    {
-      id: '3',
-      title: 'Large Pizza',
-      image: require('./../../assets/img/pizza3.jpg'),
-      servings: 8,
-      price: '12USD',
-      ingredients: 3,
-    },
-  ];
+  const {container, itemStyle, titleStyle, selectedStyle} = styles;
 
-  const [selected, setSelected] = useState(null);
-  const {container, itemStyle, titleStyle} = styles;
-
-  function RenderItem({id, title, img, servings, price}) {
+  function RenderItem({id, item, title, price}) {
     return (
-      <TouchableOpacity onPress={() => setSelected(id)}>
+      <TouchableOpacity onPress={() => props.setSelected(item)}>
         <View
           style={[
             itemStyle,
-            selected === id
-              ? {
-                  borderWidth: 1,
-                  borderColor: Colors.PrimaryColorMedium,
-                  shadowColor: Colors.PrimaryColorLight,
-                }
-              : null,
+            props.selected && props.selected.id === id ? selectedStyle : null,
+            item && item.selected ? selectedStyle : null,
           ]}>
           <Text style={titleStyle}>{title}</Text>
-          <Text style={subTitleStyle}>
-            {servings} Servings / {price}
-          </Text>
+          <Text style={subTitleStyle}>{price} USD</Text>
           {/* <Image style={{flex: 1, margin: 0}} resizeMode="center" source={img} /> */}
         </View>
       </TouchableOpacity>
@@ -67,13 +32,12 @@ export const OptionList = (props) => {
   return (
     <View style={container}>
       <FlatList
-        data={items}
+        data={props.items}
         renderItem={({item}) => (
           <RenderItem
             id={item.id}
+            item={item}
             title={item.title}
-            img={item.image}
-            servings={item.servings}
             price={item.price}
           />
         )}
@@ -110,5 +74,10 @@ const styles = StyleSheet.create({
     fontSize: 26,
     color: Colors.materialGray,
     alignSelf: 'center',
+  },
+  selectedStyle: {
+    borderWidth: 1,
+    borderColor: Colors.PrimaryColorMedium,
+    shadowColor: Colors.PrimaryColorLight,
   },
 });
