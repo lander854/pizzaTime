@@ -1,4 +1,6 @@
 export const PrimaryColor = '#e63946';
+export const PrimaryColorMedium = '#E94957';
+export const PrimaryColorLight = '#EF8089';
 export const white = '#fff';
 export const materialGray = '#33333b'; // 75% opacity
 export const darkGray = '#393939'; // 75% opacity
