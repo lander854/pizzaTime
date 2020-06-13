@@ -11,51 +11,71 @@ const Toppings = (props) => {
     {
       id: '10',
       title: 'Pepperoni',
+      image: require('./../../assets/img/pizza2.jpg'),
+
       price: 0,
     },
     {
       id: '20',
       title: 'Mushrooms',
+      image: require('./../../assets/img/pizza2.jpg'),
+
       price: 0,
     },
     {
       id: '30',
       title: 'Onions',
+      image: require('./../../assets/img/pizza2.jpg'),
+
       price: 0,
     },
     {
       id: '40',
       title: 'Sausage',
+      image: require('./../../assets/img/pizza2.jpg'),
+
       price: 0,
     },
     {
       id: '50',
       title: 'Bacon',
+      image: require('./../../assets/img/pizza2.jpg'),
+
       price: 0,
     },
     {
       id: '60',
       title: 'Extra cheese',
+      image: require('./../../assets/img/pizza2.jpg'),
+
       price: 0,
     },
     {
       id: '7',
       title: 'Black Olives',
+      image: require('./../../assets/img/pizza2.jpg'),
+
       price: 0,
     },
     {
       id: '80',
       title: 'Green Peppers',
+      image: require('./../../assets/img/pizza2.jpg'),
+
       price: 0,
     },
     {
       id: '90',
       title: 'Pineapple',
+      image: require('./../../assets/img/pizza2.jpg'),
+
       price: 0,
     },
     {
       id: '100',
       title: 'Spinach',
+      image: require('./../../assets/img/pizza2.jpg'),
+
       price: 0,
     },
   ]);
@@ -106,7 +126,7 @@ const Toppings = (props) => {
   };
 
   const action = () => {
-    props.navigation.push('Toppings', {selected});
+    props.navigation.push('Checkout', {selected, crust, items, value});
   };
   return (
     <SafeAreaView style={{flex: 1}}>

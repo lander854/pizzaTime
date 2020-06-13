@@ -13,7 +13,7 @@ import {Colors} from '../../globals';
 export const OptionList = (props) => {
   const {container, itemStyle, titleStyle, selectedStyle} = styles;
 
-  function RenderItem({id, item, title, price}) {
+  function RenderItem({id, item, title, price, img}) {
     return (
       <TouchableOpacity onPress={() => props.setSelected(item)}>
         <View
@@ -24,7 +24,13 @@ export const OptionList = (props) => {
           ]}>
           <Text style={titleStyle}>{title}</Text>
           <Text style={subTitleStyle}>{price} USD</Text>
-          {/* <Image style={{flex: 1, margin: 0}} resizeMode="center" source={img} /> */}
+          {img && (
+            <Image
+              style={{margin: 0, width: 80, height: 80}}
+              resizeMode="contain"
+              source={img}
+            />
+          )}
         </View>
       </TouchableOpacity>
     );
@@ -39,6 +45,7 @@ export const OptionList = (props) => {
             item={item}
             title={item.title}
             price={item.price}
+            img={item.image}
           />
         )}
         keyExtractor={(item) => item.id}

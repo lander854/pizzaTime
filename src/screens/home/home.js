@@ -21,21 +21,18 @@ const HomeScreen = (props) => {
     {
       id: '1',
       title: 'Small Pizza',
-      image: require('./../../assets/img/pizza2.jpg'),
       price: 8,
       ingredients: 3,
     },
     {
       id: '2',
       title: 'Medium Pizza',
-      image: require('./../../assets/img/pizza2.jpg'),
       price: 10,
       ingredients: 3,
     },
     {
       id: '3',
       title: 'Large Pizza',
-      image: require('./../../assets/img/pizza3.jpg'),
       price: 12,
       ingredients: 3,
     },
